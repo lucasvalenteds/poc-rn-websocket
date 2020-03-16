@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StatusBar, FlatList } from 'react-native';
+import { SafeAreaView, StatusBar, FlatList, View } from 'react-native';
 import { Message, MessageComponent, MessageService } from './Message';
 
 const App: React.FC = (): React.ReactElement => {
@@ -25,6 +25,9 @@ const App: React.FC = (): React.ReactElement => {
           data={messages}
           keyExtractor={(prop) => prop.id}
           renderItem={(prop) => MessageComponent(prop.item)}
+          ItemSeparatorComponent={() => (
+            <View style={{ height: 1, backgroundColor: '#22222222' }} />
+          )}
         />
       </SafeAreaView>
     </>
